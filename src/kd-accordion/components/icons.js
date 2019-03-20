@@ -1,18 +1,102 @@
 const icons = {};
 
-icons.upload = <svg width='20px' height='20px' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'>
-    <path d='m77.945 91.453h-72.371c-3.3711 0-5.5742-2.3633-5.5742-5.2422v-55.719c0-3.457 2.1172-6.0703 5.5742-6.0703h44.453v11.051l-38.98-0.003906v45.008h60.977v-17.133l11.988-0.007812v22.875c0 2.8789-2.7812 5.2422-6.0664 5.2422z'
-    />
-    <path d='m16.543 75.48l23.25-22.324 10.441 9.7773 11.234-14.766 5.5039 10.539 0.039063 16.773z'
-    />
-    <path d='m28.047 52.992c-3.168 0-5.7422-2.5742-5.7422-5.7461 0-3.1758 2.5742-5.75 5.7422-5.75 3.1797 0 5.7539 2.5742 5.7539 5.75 0 3.1719-2.5742 5.7461-5.7539 5.7461z'
-    />
-    <path d='m84.043 30.492v22.02h-12.059l-0.015625-22.02h-15.852l21.941-21.945 21.941 21.945z'
-    />
-</svg>;
+icons.arrow = (
+	<svg
+		version="1.1"
+		id="Layer_1"
+		xmlns="http://www.w3.org/2000/svg"
+		xlink="http://www.w3.org/1999/xlink"
+		x="0px"
+		y="0px"
+		viewBox="0 0 25.9 14.8"
+		//style="enable-background:new 0 0 25.9 14.8;"
+		space="preserve"
+	>
+		<path
+			class="st0"
+			style={{ fill: '#F1F0F0' }}
+			d="M25.7,1.3c0.1,0.2,0.2,0.3,0.2,0.5c0,0.2-0.1,0.3-0.2,0.5L13.5,14.6c-0.2,0.1-0.3,0.2-0.5,0.2
+c-0.2,0-0.3-0.1-0.5-0.2L0.2,2.3C0.1,2.2,0,2,0,1.9c0-0.2,0.1-0.4,0.2-0.5l1.2-1.2C1.5,0.1,1.6,0,1.8,0C2,0,2.2,0.1,2.3,0.2
+l10.6,10.6L23.6,0.2C23.7,0.1,23.9,0,24.1,0c0.2,0,0.3,0.1,0.5,0.2L25.7,1.3z"
+		/>
+	</svg>
+);
 
-icons.dismiss = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns='http://www.w3.org/2000/svg' width="20" height="20" viewBox="0 0 20 20">
-    <path d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8zM15 13l-3-3 3-3-2-2-3 3-3-3-2 2 3 3-3 3 2 2 3-3 3 3z"></path>
-</svg>;
+icons.accordion = (
+	<svg
+		version="1.1"
+		id="Layer_1"
+		xmlns="http://www.w3.org/2000/svg"
+		xlink="http://www.w3.org/1999/xlink"
+		x="0px"
+		y="0px"
+		viewBox="0 0 13.7 12"
+		//style="enable-background:new 0 0 13.7 12;"
+		space="preserve"
+	>
+		<g transform="translate(-281.5 -122.822)">
+			<g transform="translate(0 -19)">
+				<g transform="translate(1 -8.678)">
+					<rect
+						x="280.5"
+						y="155.5"
+						class="st0"
+						style={{ fill: '#555D66' }}
+						width="11"
+						height="2"
+					/>
+					<rect
+						x="292.2"
+						y="155.5"
+						class="st0"
+						style={{ fill: '#555D66' }}
+						width="2"
+						height="2"
+					/>
+				</g>
+			</g>
+			<g transform="translate(0 -14)">
+				<g transform="translate(1 -8.678)">
+					<rect
+						x="280.5"
+						y="155.5"
+						class="st0"
+						style={{ fill: '#555D66' }}
+						width="11"
+						height="2"
+					/>
+					<rect
+						x="292.2"
+						y="155.5"
+						class="st0"
+						style={{ fill: '#555D66' }}
+						width="2"
+						height="2"
+					/>
+				</g>
+			</g>
+			<g transform="translate(0 -24)">
+				<g transform="translate(1 -8.678)">
+					<rect
+						x="280.5"
+						y="155.5"
+						class="st1"
+						style={{ fill: '#FF214F' }}
+						width="11"
+						height="2"
+					/>
+					<rect
+						x="292.2"
+						y="155.5"
+						class="st1"
+						style={{ fill: '#FF214F' }}
+						width="2"
+						height="2"
+					/>
+				</g>
+			</g>
+		</g>
+	</svg>
+);
 
 export default icons;

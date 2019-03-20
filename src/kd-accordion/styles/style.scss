@@ -3,19 +3,20 @@
  * Loads on front end and back end
  */
 
- .ab-block-accordion {
-	 margin-bottom: 1.2em; 
+.kd-block-accordion {
+	//margin-bottom: 1.2em;
 
-	.ab-accordion-title {
-		background: #f2f2f2;
+	.kd-accordion-title {
+		background: #1c1d1d;
+		color: #fff;
 		padding: 10px 15px;
-		
+
 		p {
 			display: inline;
 		}
 	}
 
-	.ab-accordion-text {
+	.kd-accordion-text {
 		padding: 10px 15px;
 
 		a {
@@ -47,6 +48,6 @@
 	}
 }
 
-.ab-block-accordion + .ab-block-accordion {
-	margin-top: -.6em;
+.kd-block-accordion + .kd-block-accordion {
+	margin-top: -0.6em;
 }

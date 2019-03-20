@@ -5,57 +5,41 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-kd-blocks {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
  * Accordion styles
  * Loads on front end and back end
  */
-.ab-block-accordion {
-  margin-bottom: 1.2em; }
-  .ab-block-accordion .ab-accordion-title {
-    background: #f2f2f2;
-    padding: 10px 15px; }
-    .ab-block-accordion .ab-accordion-title p {
-      display: inline; }
-  .ab-block-accordion .ab-accordion-text {
-    padding: 10px 15px; }
-    .ab-block-accordion .ab-accordion-text a {
-      color: inherit;
-      -webkit-box-shadow: 0 -1px 0 inset;
-              box-shadow: 0 -1px 0 inset;
-      text-decoration: none; }
-      .ab-block-accordion .ab-accordion-text a:hover {
-        color: inherit;
-        -webkit-box-shadow: 0 -2px 0 inset;
-                box-shadow: 0 -2px 0 inset; }
-  .ab-block-accordion a {
+.kd-block-accordion .kd-accordion-title {
+  background: #1c1d1d;
+  color: #fff;
+  padding: 10px 15px; }
+  .kd-block-accordion .kd-accordion-title p {
+    display: inline; }
+
+.kd-block-accordion .kd-accordion-text {
+  padding: 10px 15px; }
+  .kd-block-accordion .kd-accordion-text a {
     color: inherit;
     -webkit-box-shadow: 0 -1px 0 inset;
             box-shadow: 0 -1px 0 inset;
     text-decoration: none; }
-    .ab-block-accordion a:hover {
+    .kd-block-accordion .kd-accordion-text a:hover {
       color: inherit;
       -webkit-box-shadow: 0 -2px 0 inset;
               box-shadow: 0 -2px 0 inset; }
-  .ab-block-accordion .editor-rich-text .editor-rich-text__inline-toolbar {
-    display: block;
-    left: 40%; }
 
-.ab-block-accordion + .ab-block-accordion {
-  margin-top: -.6em; }
+.kd-block-accordion a {
+  color: inherit;
+  -webkit-box-shadow: 0 -1px 0 inset;
+          box-shadow: 0 -1px 0 inset;
+  text-decoration: none; }
+  .kd-block-accordion a:hover {
+    color: inherit;
+    -webkit-box-shadow: 0 -2px 0 inset;
+            box-shadow: 0 -2px 0 inset; }
+
+.kd-block-accordion .editor-rich-text .editor-rich-text__inline-toolbar {
+  display: block;
+  left: 40%; }
+
+.kd-block-accordion + .kd-block-accordion {
+  margin-top: -0.6em; }
