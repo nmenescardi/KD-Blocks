@@ -32,7 +32,8 @@ export default class Accordion extends Component {
 					this.props.className,
 					accordionAlignment,
 					'kd-block-accordion',
-					{ 'shuffle-animation': shuffleAnimation }
+					{ accordion: !shuffleAnimation },
+					{ 'accordion-shuffle': shuffleAnimation }
 				)}
 			>
 				{this.props.children}

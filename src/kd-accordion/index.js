@@ -87,7 +87,7 @@ class KDAccordionBlock extends Component {
 					tagName="p"
 					placeholder={__('Accordion Title', 'kd-blocks')}
 					value={accordionTitle}
-					className="kd-accordion-title"
+					className="kd-accordion-title accordion--headline"
 					onChange={value =>
 						this.props.setAttributes({ accordionTitle: value })
 					}
@@ -125,63 +125,32 @@ registerBlockType('kd-blocks/kd-accordion', {
 	// Save the attributes and markup
 	save: function(props) {
 		// Setup the attributes
-		const { accordionTitle, accordionText, accordionOpen } = props.attributes;
+		const {
+			accordionTitle,
+			plusIcon,
+			accordionOpen,
+			iconPositionLeft
+		} = props.attributes;
 
 		// Save the block markup for the front end
 		return (
 			<Accordion {...props}>
-				<details open={accordionOpen}>
-					<summary className="kd-accordion-title">
+				<section
+					className={classnames(
+						{ open: accordionOpen },
+						{ 'icon-left': iconPositionLeft },
+						{ 'icon-right': !iconPositionLeft },
+						{ 'plus-icon': plusIcon },
+						{ 'row-icon': !plusIcon }
+					)}
+				>
+					<h2 className="kd-accordion-title accordion--headline">
 						<RichText.Content value={accordionTitle} />
-					</summary>
-					<div className="kd-accordion-text">
+					</h2>
+					<div className="kd-accordion-text accordion--content">
 						<InnerBlocks.Content />
 					</div>
-				</details>
-				<script>
-					{`
-						(window.onload = function() {
-							
-							var shuffleAccordionElements = document.querySelectorAll(
-								'.kd-block-accordion.shuffle-animation details'
-							);
-						
-							console.log(shuffleAccordionElements);
-						
-							for (var elem of shuffleAccordionElements) {
-								elem.addEventListener('click', function() {
-									
-									var isOpened = this.hasAttribute("open");
-									
-									closeOnShuffle();
-									
-									/*
-									if( !isOpened ) {
-										console.log('pasa' + isOpened);
-										this.open=true;
-									} 
-*/
-								});
-							}
-
-							function closeOnShuffle() {
-								var shuffleAccordionOpenedElements = document.querySelectorAll(
-									'.kd-block-accordion.shuffle-animation details'
-								);
-
-								//console.log(shuffleAccordionOpenedElements);
-								
-								for (var elemToClose of shuffleAccordionOpenedElements) {
-									//elemToClose.removeAttribute("open");
-									elemToClose.open=true;
-									console.log( 'elem: ' + elemToClose);
-								}
-								
-							}
-
-						})
-					`}
-				</script>
+				</section>
 			</Accordion>
 		);
 	}

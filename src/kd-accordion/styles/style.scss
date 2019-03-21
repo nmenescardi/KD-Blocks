@@ -7,9 +7,9 @@
 	//margin-bottom: 1.2em;
 
 	.kd-accordion-title {
-		background: #1c1d1d;
+		/*	background: #1c1d1d;
 		color: #fff;
-		padding: 10px 15px;
+		padding: 10px 15px;*/
 
 		p {
 			display: inline;
@@ -50,4 +50,96 @@
 
 .kd-block-accordion + .kd-block-accordion {
 	margin-top: -0.6em;
+}
+
+.kd-block-accordion {
+	.accordion--headline {
+		background-color: #1c1d1d;
+		color: #fff;
+		padding: 15px;
+		margin: 0;
+		transition: 0.3s ease;
+		position: relative;
+
+		&:hover,
+		&:focus,
+		&:active {
+			cursor: pointer;
+			background-color: grey;
+		}
+
+		&::before,
+		&::after {
+			width: 15px;
+			position: absolute;
+			display: block;
+			right: 15px;
+
+			transition: 0.3s ease;
+			margin: 0;
+		}
+	}
+
+	section.plus-icon > .accordion--headline {
+		&::before,
+		&::after {
+			content: '';
+			top: 50%;
+			height: 2px;
+			background-color: #fff;
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+
+		&::after {
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
+	}
+
+	section.row-icon > .accordion--headline {
+		&::before {
+			content: '';
+			background: url('/wp-content/plugins/kd-blocks/dist/img/kd-arrow-icon.svg')
+				no-repeat;
+			padding: 10px;
+			color: #fff;
+			top: 43%;
+			transform-origin: 20% 20%;
+			width: 22px;
+			right: 18px;
+		}
+	}
+
+	section.open.plus-icon > .accordion--headline {
+		&::before {
+			transform: translate(-50%, -50%) rotate(180deg);
+		}
+
+		&::after {
+			transform: translate(-50%, -50%) rotate(360deg);
+		}
+	}
+
+	section.open.row-icon > .accordion--headline {
+		&::before {
+			transform: rotateX(180deg);
+		}
+	}
+
+	section.icon-left {
+		.accordion--headline {
+			padding-left: 75px;
+
+			&::before,
+			&::after {
+				left: 20px;
+			}
+		}
+	}
+
+	.accordion--content {
+		display: none;
+		background-color: #fff;
+		padding: 20px;
+		border-top: 0;
+	}
 }

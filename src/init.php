@@ -27,6 +27,14 @@ function kd_blocks_cgb_block_assets() { // phpcs:ignore
 		array( 'wp-editor' ) // Dependency to include the CSS after it.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
+
+	wp_enqueue_script(
+		'kd_blocks-animations-accordion-js', // Handle.
+		plugins_url( '/dist/animations/accordion.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+		array( 'jquery' ), // Dependencies, defined above.
+		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: File modification time.
+		true // Enqueue the script in the footer.
+	);
 }
 
 // Hook: Frontend assets.
@@ -42,7 +50,7 @@ add_action( 'enqueue_block_assets', 'kd_blocks_cgb_block_assets' );
  * @since 1.0.0
  */
 function kd_blocks_cgb_editor_assets() { // phpcs:ignore
-	// Scripts.
+	// Scripts.	
 	wp_enqueue_script(
 		'kd_blocks-cgb-block-js', // Handle.
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
