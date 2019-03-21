@@ -12,3 +12,9 @@
 
 .editor-block-list__layout [data-type='atomic-blocks/ab-accordion'] {
   margin-bottom: 1.2em; }
+
+.position-absolute {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute; }

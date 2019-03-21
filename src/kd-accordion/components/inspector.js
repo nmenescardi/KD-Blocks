@@ -28,7 +28,12 @@ export default class Inspector extends Component {
 	}
 
 	render() {
-		const { accordionOpen } = this.props.attributes;
+		const {
+			accordionOpen,
+			plusIcon,
+			iconPositionLeft,
+			shuffleAnimation
+		} = this.props.attributes;
 
 		return (
 			<InspectorControls key="inspector">
@@ -38,6 +43,25 @@ export default class Inspector extends Component {
 						checked={accordionOpen}
 						onChange={() =>
 							this.props.setAttributes({ accordionOpen: !accordionOpen })
+						}
+					/>
+					<ToggleControl
+						label={__('Plus Icon', 'kd-blocks')}
+						checked={plusIcon}
+						onChange={() => this.props.setAttributes({ plusIcon: !plusIcon })}
+					/>
+					<ToggleControl
+						label={__('Icon Position Left', 'kd-blocks')}
+						checked={iconPositionLeft}
+						onChange={() =>
+							this.props.setAttributes({ iconPositionLeft: !iconPositionLeft })
+						}
+					/>
+					<ToggleControl
+						label={__('Shuffle Animation', 'kd-blocks')}
+						checked={shuffleAnimation}
+						onChange={() =>
+							this.props.setAttributes({ shuffleAnimation: !shuffleAnimation })
 						}
 					/>
 				</PanelBody>

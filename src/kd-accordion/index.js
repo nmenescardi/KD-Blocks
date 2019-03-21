@@ -14,7 +14,13 @@ import './styles/editor.scss';
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { registerBlockType } = wp.blocks;
-const { RichText, AlignmentToolbar, BlockControls, InnerBlocks } = wp.editor;
+const {
+	RichText,
+	AlignmentToolbar,
+	BlockControls,
+	InnerBlocks,
+	BlockAlignmentToolbar
+} = wp.editor;
 
 const blockAttributes = {
 	accordionTitle: {
@@ -27,12 +33,25 @@ const blockAttributes = {
 		selector: '.kd-accordion-text',
 		source: 'children'
 	},
-	accordionAlignment: {
-		type: 'string'
+	blockAlignment: {
+		type: 'string',
+		default: 'wide'
 	},
 	accordionOpen: {
 		type: 'boolean',
 		default: false
+	},
+	plusIcon: {
+		type: 'boolean',
+		default: false
+	},
+	iconPositionLeft: {
+		type: 'boolean',
+		default: false
+	},
+	shuffleAnimation: {
+		type: 'boolean',
+		default: true
 	}
 };
 
@@ -43,7 +62,7 @@ class KDAccordionBlock extends Component {
 			attributes: {
 				accordionTitle,
 				accordionText,
-				accordionAlignment,
+				blockAlignment,
 				accordionOpen
 			},
 			isSelected,
@@ -54,11 +73,10 @@ class KDAccordionBlock extends Component {
 		return [
 			// Show the block alignment controls on focus
 			<BlockControls key="controls">
-				<AlignmentToolbar
-					value={accordionAlignment}
-					onChange={value =>
-						this.props.setAttributes({ accordionAlignment: value })
-					}
+				<BlockAlignmentToolbar
+					value={blockAlignment}
+					onChange={blockAlignment => setAttributes({ blockAlignment })}
+					controls={['wide', 'full']}
 				/>
 			</BlockControls>,
 			// Show the block controls on focus
@@ -95,18 +113,19 @@ registerBlockType('kd-blocks/kd-accordion', {
 	keywords: [__('accordion', 'kd-blocks'), __('list', 'kd-blocks')],
 	attributes: blockAttributes,
 
+	getEditWrapperProps({ blockAlignment }) {
+		if ('full' === blockAlignment) {
+			return { 'data-align': blockAlignment };
+		}
+	},
+
 	// Render the block components
 	edit: KDAccordionBlock,
 
 	// Save the attributes and markup
 	save: function(props) {
 		// Setup the attributes
-		const {
-			accordionTitle,
-			accordionText,
-			accordionAlignment,
-			accordionOpen
-		} = props.attributes;
+		const { accordionTitle, accordionText, accordionOpen } = props.attributes;
 
 		// Save the block markup for the front end
 		return (
@@ -119,6 +138,50 @@ registerBlockType('kd-blocks/kd-accordion', {
 						<InnerBlocks.Content />
 					</div>
 				</details>
+				<script>
+					{`
+						(window.onload = function() {
+							
+							var shuffleAccordionElements = document.querySelectorAll(
+								'.kd-block-accordion.shuffle-animation details'
+							);
+						
+							console.log(shuffleAccordionElements);
+						
+							for (var elem of shuffleAccordionElements) {
+								elem.addEventListener('click', function() {
+									
+									var isOpened = this.hasAttribute("open");
+									
+									closeOnShuffle();
+									
+									/*
+									if( !isOpened ) {
+										console.log('pasa' + isOpened);
+										this.open=true;
+									} 
+*/
+								});
+							}
+
+							function closeOnShuffle() {
+								var shuffleAccordionOpenedElements = document.querySelectorAll(
+									'.kd-block-accordion.shuffle-animation details'
+								);
+
+								//console.log(shuffleAccordionOpenedElements);
+								
+								for (var elemToClose of shuffleAccordionOpenedElements) {
+									//elemToClose.removeAttribute("open");
+									elemToClose.open=true;
+									console.log( 'elem: ' + elemToClose);
+								}
+								
+							}
+
+						})
+					`}
+				</script>
 			</Accordion>
 		);
 	}
