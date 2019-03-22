@@ -18,3 +18,12 @@
   left: 0;
   width: 100%;
   position: absolute; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * Editor styles for the admin
+ */

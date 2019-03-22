@@ -116,3 +116,71 @@
   background-color: #fff;
   padding: 20px;
   border-top: 0; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * Container styles
+ * Loads on front end and back end
+ */
+.kd-block-container {
+  margin: 0;
+  position: relative;
+  padding: 0; }
+  .kd-block-container.alignfull .editor-block-list__block {
+    max-width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .kd-block-container.alignfull .kd-container-inside,
+    .kd-block-container.alignfull .kd-container-inside {
+      max-width: 100%;
+      margin: 0 auto; } }
+  @media only screen and (min-width: 768px) {
+    .kd-block-container.alignwide .kd-container-inside,
+    .kd-block-container.alignwide .kd-container-inside {
+      max-width: 80%;
+      margin: 0 auto; } }
+  .kd-block-container .kd-container-image-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 0; }
+  .kd-block-container .kd-container-image {
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease; }
+  .kd-block-container .kd-container-content {
+    margin: 0 auto;
+    position: relative; }
+  .kd-block-container .kd-container-image:not(.has-background-dim) {
+    opacity: 0; }
+  .kd-block-container .has-background-dim {
+    opacity: 0.5; }
+  .kd-block-container .has-background-dim-10 {
+    opacity: 0.1; }
+  .kd-block-container .has-background-dim-20 {
+    opacity: 0.2; }
+  .kd-block-container .has-background-dim-30 {
+    opacity: 0.3; }
+  .kd-block-container .has-background-dim-40 {
+    opacity: 0.4; }
+  .kd-block-container .has-background-dim-50 {
+    opacity: 0.5; }
+  .kd-block-container .has-background-dim-60 {
+    opacity: 0.6; }
+  .kd-block-container .has-background-dim-70 {
+    opacity: 0.7; }
+  .kd-block-container .has-background-dim-80 {
+    opacity: 0.8; }
+  .kd-block-container .has-background-dim-90 {
+    opacity: 0.9; }
+  .kd-block-container .has-background-dim-100 {
+    opacity: 1; }

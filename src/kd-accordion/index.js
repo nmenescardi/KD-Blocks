@@ -1,5 +1,5 @@
 /**
- * BLOCK: KD Blocks Accordion Block
+ * KD Accordion Block
  */
 
 // Import block dependencies and components
