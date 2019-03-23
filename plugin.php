@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: kd-blocks — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: kd-blocks — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
+ * Plugin Name: KD Blocks
+ * Plugin URI: http://kielydesign.com/
+ * Description: Kiely Design Custom Blocks
+ * Author: Nicolas Menescardi
+ * Author URI: https://www.linkedin.com/in/menescardi/
  * Version: 1.0.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
