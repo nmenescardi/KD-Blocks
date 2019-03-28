@@ -12,5 +12,5 @@ import { times } from 'lodash';
  * @return {Object[]} Columns layout configuration.
  */
 export const getColumnsTemplate = memoize(columns => {
-	return times(columns, () => ['core/column']);
+	return times(columns, () => ['kd-blocks/kd-column']);
 });

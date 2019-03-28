@@ -6,17 +6,17 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { compose } from '@wordpress/compose';
-import { PanelBody, RangeControl } from '@wordpress/components';
-import { Fragment } from '@wordpress/element';
-import {
+const { __ } = wp.i18n;
+const { compose } = wp.compose;
+const { PanelBody, RangeControl } = wp.components;
+const { Fragment } = wp.element;
+const {
 	InspectorControls,
 	InnerBlocks,
 	BlockControls,
 	BlockVerticalAlignmentToolbar
-} from '@wordpress/block-editor';
-import { withSelect, withDispatch } from '@wordpress/data';
+} = wp.editor;
+const { withDispatch, withSelect } = wp.data;
 
 /**
  * Internal dependencies
@@ -32,7 +32,7 @@ import { getColumnsTemplate } from './utils';
  * @constant
  * @type {string[]}
  */
-const ALLOWED_BLOCKS = ['core/column'];
+const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
 
 export const ColumnsEdit = function({
 	attributes,

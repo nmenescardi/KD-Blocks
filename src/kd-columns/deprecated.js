@@ -1,9 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { createBlock } from '@wordpress/blocks';
-import { InnerBlocks } from '@wordpress/block-editor';
-
+const { InnerBlocks, createBlock } = wp.editor;
 /**
  * Given an HTML string for a deprecated columns inner block, returns the
  * column index to which the migrated inner block should be assigned. Returns
@@ -77,7 +75,7 @@ export default [
 			}, []);
 
 			const migratedInnerBlocks = columns.map(columnBlocks =>
-				createBlock('core/column', {}, columnBlocks)
+				createBlock('kd-blocks/kd-column', {}, columnBlocks)
 			);
 
 			return [attributes, migratedInnerBlocks];

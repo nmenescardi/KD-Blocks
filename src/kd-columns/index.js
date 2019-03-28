@@ -6,32 +6,27 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { G, SVG, Path } from '@wordpress/components';
+const { __ } = wp.i18n;
 
-import { InnerBlocks } from '@wordpress/block-editor';
+const { InnerBlocks } = wp.editor;
+const { registerBlockType } = wp.blocks;
 
 /**
  * Internal dependencies
  */
 import deprecated from './deprecated';
 import edit from './edit';
+import icons from './icons';
 
-export const name = 'core/columns';
-
-export const settings = {
+registerBlockType('kd-blocks/kd-columns', {
 	title: __('Columns'),
-
-	icon: (
-		<SVG viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-			<Path fill="none" d="M0 0h24v24H0V0z" />
-			<G>
-				<Path d="M4,4H20a2,2,0,0,1,2,2V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4ZM4 6V18H8V6Zm6 0V18h4V6Zm6 0V18h4V6Z" />
-			</G>
-		</SVG>
+	description: __(
+		'Accordion block: Includes title and inner blocks.',
+		'kd-blocks'
 	),
+	icon: icons.accordion,
 
-	category: 'layout',
+	category: 'kd-blocks',
 
 	attributes: {
 		columns: {
@@ -69,4 +64,4 @@ export const settings = {
 			</div>
 		);
 	}
-};
+});

@@ -12,3 +12,4 @@
 import './kd-accordion/index.js';
 import './kd-container/index.js';
 import './kd-two-columns/index.js';
+import './kd-columns/index.js';
