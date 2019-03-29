@@ -108,15 +108,24 @@ class KDTwoColumnsBlock extends Component {
 			]
 		]; */
 
-		const TEMPLATE = [['kd-blocks/kd-column', { className: columnOneClasses }]];
+		const TEMPLATE = [
+			['kd-blocks/kd-column', { className: columnOneClasses }],
+			['kd-blocks/kd-column', { className: columnTwoClasses }]
+		];
 
-		var col = select('core/editor').getBlocksByClientId(clientId)[0]
+		var col1 = select('core/editor').getBlocksByClientId(clientId)[0]
 			.innerBlocks[0];
-
-		console.log(col);
-		if (col) {
-			dispatch('core/editor').updateBlockAttributes(col.clientId, {
+		if (col1) {
+			dispatch('core/editor').updateBlockAttributes(col1.clientId, {
 				className: columnOneClasses
+			});
+		}
+		var col2 = select('core/editor').getBlocksByClientId(clientId)[0]
+			.innerBlocks[1];
+
+		if (col2) {
+			dispatch('core/editor').updateBlockAttributes(col2.clientId, {
+				className: columnTwoClasses
 			});
 		}
 
@@ -144,7 +153,7 @@ class KDTwoColumnsBlock extends Component {
 				>
 					<InnerBlocks
 						template={TEMPLATE}
-						//templateLock="all"
+						templateLock="all"
 						//allowedBlocks={ALLOWED_BLOCKS}
 					/>
 					{/* 
