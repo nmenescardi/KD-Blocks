@@ -115,10 +115,7 @@ class KDTwoColumnsBlock extends Component {
 
 		console.log(col);
 		if (col) {
-			var clientId2 = col.clientId;
-			console.log('client Id: ', clientId2);
-
-			dispatch('core/editor').updateBlockAttributes(clientId2, {
+			dispatch('core/editor').updateBlockAttributes(col.clientId, {
 				className: columnOneClasses
 			});
 		}
@@ -228,28 +225,28 @@ registerBlockType('kd-blocks/kd-two-columns', {
 			containerDimRatio
 		} = props.attributes;
 
-		return (
-			<Container {...props}>
-				<div className="kd-container-inside">
-					{containerImgURL && !!containerImgURL.length && (
-						<div className="kd-container-image-wrap">
-							<img
-								className={classnames(
-									'kd-container-image',
-									dimRatioToClass(containerDimRatio),
-									{
-										'has-background-dim': containerDimRatio !== 0
-									}
-								)}
-								src={containerImgURL}
-								alt={containerImgAlt}
-							/>
-						</div>
-					)}
+		const { clientId } = props;
 
-					<InnerBlocks.Content />
-				</div>
-			</Container>
+		return (
+			<div className="kd-container-inside row">
+				{containerImgURL && !!containerImgURL.length && (
+					<div className="kd-container-image-wrap">
+						<img
+							className={classnames(
+								'kd-container-image',
+								dimRatioToClass(containerDimRatio),
+								{
+									'has-background-dim': containerDimRatio !== 0
+								}
+							)}
+							src={containerImgURL}
+							alt={containerImgAlt}
+						/>
+					</div>
+				)}
+
+				<InnerBlocks.Content />
+			</div>
 		);
 	}
 });

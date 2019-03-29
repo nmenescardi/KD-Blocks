@@ -23,9 +23,9 @@ registerBlockType('kd-blocks/kd-column', {
 	category: 'kd-blocks',
 
 	attributes: {
-		/* className: {
+		className: {
 			type: 'string'
-		} */
+		}
 	},
 	/* 
 	supports: {
