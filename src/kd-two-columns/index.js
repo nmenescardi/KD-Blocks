@@ -10,6 +10,8 @@ import './styles/style.scss';
 import './styles/editor.scss';
 import icons from './components/icons';
 
+const { dispatch, select } = wp.data;
+
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 const { registerBlockType } = wp.blocks;
@@ -89,7 +91,8 @@ class KDTwoColumnsBlock extends Component {
 				columnOneDimRatio,
 				columnTwoDimRatio
 			},
-			setAttributes
+			setAttributes,
+			clientId
 		} = this.props;
 
 		//const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
@@ -106,6 +109,19 @@ class KDTwoColumnsBlock extends Component {
 		]; */
 
 		const TEMPLATE = [['kd-blocks/kd-column', { className: columnOneClasses }]];
+
+		var col = select('core/editor').getBlocksByClientId(clientId)[0]
+			.innerBlocks[0];
+
+		console.log(col);
+		if (col) {
+			var clientId2 = col.clientId;
+			console.log('client Id: ', clientId2);
+
+			dispatch('core/editor').updateBlockAttributes(clientId2, {
+				className: columnOneClasses
+			});
+		}
 
 		return [
 			<BlockControls>
