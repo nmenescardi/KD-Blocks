@@ -4,6 +4,7 @@
 import classnames from 'classnames';
 import Inspector from './components/inspector';
 import Container from './components/container';
+import './components/column';
 
 import './styles/style.scss';
 import './styles/editor.scss';
@@ -91,6 +92,21 @@ class KDTwoColumnsBlock extends Component {
 			setAttributes
 		} = this.props;
 
+		//const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
+		/* 
+		const TEMPLATE = [
+			[
+				'core/columns',
+				{},
+				[
+					['kd-blocks/kd-column', { className: 'aaaaaaaaa' }],
+					['kd-blocks/kd-column', { className: 'bbbbbbbbbb' }]
+				]
+			]
+		]; */
+
+		const TEMPLATE = [['kd-blocks/kd-column', { className: columnOneClasses }]];
+
 		return [
 			<BlockControls>
 				<BlockAlignmentToolbar
@@ -101,12 +117,10 @@ class KDTwoColumnsBlock extends Component {
 			</BlockControls>,
 
 			<Inspector
-				{
-					...{
-						setAttributes,
-						...this.props
-					} /* TODO REFACTORING !!!!!!!!!!!!!!!!! */
-				}
+				{...{
+					setAttributes,
+					...this.props
+				}}
 			/>,
 
 			<div className="kd-block-two-col">
@@ -115,6 +129,12 @@ class KDTwoColumnsBlock extends Component {
 						['align' + containerWidth]: containerWidth
 					})}
 				>
+					<InnerBlocks
+						template={TEMPLATE}
+						//templateLock="all"
+						//allowedBlocks={ALLOWED_BLOCKS}
+					/>
+					{/* 
 					<div className={classnames('kd-col-1', columnOneClasses)}>
 						<Container containerBackgroundColor={containerBackgroundColorOne}>
 							{containerImgURLOne && !!containerImgURLOne.length && (
@@ -132,10 +152,9 @@ class KDTwoColumnsBlock extends Component {
 									/>
 								</div>
 							)}
-							<InnerBlocks />
 						</Container>
-					</div>
-					<div className={classnames('kd-col-2', columnTwoClasses)}>
+					</div> */}
+					{/* <div className={classnames('kd-col-2', columnTwoClasses)}>
 						<Container containerBackgroundColor={containerBackgroundColorTwo}>
 							{containerImgURLTwo && !!containerImgURLTwo.length && (
 								<div className="kd-container-image-wrap">
@@ -152,9 +171,8 @@ class KDTwoColumnsBlock extends Component {
 									/>
 								</div>
 							)}
-							<InnerBlocks />
 						</Container>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		];

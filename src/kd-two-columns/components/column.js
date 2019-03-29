@@ -8,24 +8,22 @@ import icons from './icons';
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { InnerBlocks, BlockControls, BlockVerticalAlignmentToolbar } = wp.editor;
-const { withDispatch, withSelect } = wp.data;
-const { compose } = wp.compose;
+const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
 
 registerBlockType('kd-blocks/kd-column', {
 	title: __('Column'),
 
-	parent: ['kd-blocks/kd-column'],
+	parent: ['kd-blocks/kd-two-columns'],
 
 	icon: icons.accordion,
 
-	description: __('A single column within a columns block.'),
+	description: __('Aaaaa single column within a columns block.'),
 
 	category: 'kd-blocks',
 
 	attributes: {
-		/* verticalAlignment: {
+		/* className: {
 			type: 'string'
 		} */
 	},
@@ -36,9 +34,13 @@ registerBlockType('kd-blocks/kd-column', {
 		html: false
 	}, */
 
-	edit: props => {
+	edit: function(props) {
+		const {
+			attributes: { className }
+		} = props;
+		//const { className } = this.props.attributes;
 		return (
-			<div>
+			<div className={classnames('algodon', className)}>
 				<InnerBlocks templateLock={false} />
 			</div>
 		);

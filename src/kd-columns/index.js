@@ -10,13 +10,49 @@ const { __ } = wp.i18n;
 
 const { InnerBlocks } = wp.editor;
 const { registerBlockType } = wp.blocks;
+const { Component } = wp.element;
 
 /**
  * Internal dependencies
  */
-import deprecated from './deprecated';
-import edit from './edit';
+//import deprecated from './deprecated';
+//import edit from './edit';
 import icons from './icons';
+import { getColumnsTemplate } from './utils';
+
+const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
+
+const TEMPLATE = [
+	[
+		'core/columns',
+		{},
+		[
+			['core/column', {}, [['core/image']]],
+			[
+				'core/column',
+				{},
+				[['core/paragraph', { placeholder: 'Enter side content...' }]]
+			]
+		]
+	]
+];
+
+class KDAcolumns extends Component {
+	render() {
+		// Setup the attributes
+		const { className } = this.props;
+
+		return [
+			<div className={className}>
+				<InnerBlocks
+					template={TEMPLATE}
+					templateLock="all"
+					allowedBlocks={ALLOWED_BLOCKS}
+				/>
+			</div>
+		];
+	}
+}
 
 registerBlockType('kd-blocks/kd-columns', {
 	title: __('Columns'),
@@ -28,38 +64,24 @@ registerBlockType('kd-blocks/kd-columns', {
 
 	category: 'kd-blocks',
 
-	attributes: {
-		columns: {
-			type: 'number',
-			default: 2
-		},
-		verticalAlignment: {
-			type: 'string'
-		}
-	},
+	attributes: {},
 
 	description: __(
 		'Add a block that displays content in multiple columns, then add whatever content blocks you’d like.'
 	),
-
+	/* 
 	supports: {
 		align: ['wide', 'full'],
 		html: false
-	},
+	}, */
 
-	deprecated,
+	//deprecated,
 
-	edit,
+	edit: KDAcolumns,
 
-	save({ attributes }) {
-		const { columns, verticalAlignment } = attributes;
-
-		const wrapperClasses = classnames(`has-${columns}-columns`, {
-			[`are-vertically-aligned-${verticalAlignment}`]: verticalAlignment
-		});
-
+	save() {
 		return (
-			<div className={wrapperClasses}>
+			<div className="a">
 				<InnerBlocks.Content />
 			</div>
 		);
