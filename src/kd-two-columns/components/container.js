@@ -4,7 +4,6 @@
 
 const { Component } = wp.element;
 import classnames from 'classnames';
-const { InnerBlocks } = wp.editor;
 
 export default class Container extends Component {
 	constructor(props) {
@@ -12,33 +11,20 @@ export default class Container extends Component {
 	}
 
 	render() {
-		const { containerBackgroundColor } = this.props;
+		const {
+			attributes: { rowClasses, containerWidth }
+		} = this.props;
 
-		const styles = {
-			backgroundColor: containerBackgroundColor
-				? containerBackgroundColor
-				: undefined
-		};
-
-		const className = classnames([this.props.className, 'kd-block-container']);
-
-		const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
-
-		const TEMPLATE = [
-			[
-				'core/columns',
-				{},
-				[['kd-blocks/kd-column', {}], ['kd-blocks/kd-column', {}]]
-			]
-		];
+		const className = classnames(
+			[this.props.className, rowClasses, 'kd-block-container row'],
+			{
+				['align' + containerWidth]: containerWidth
+			}
+		);
 
 		return (
-			<div style={styles} className={className ? className : undefined}>
-				<InnerBlocks
-					template={TEMPLATE}
-					templateLock="all"
-					allowedBlocks={ALLOWED_BLOCKS}
-				/>
+			<div className={className ? className : undefined}>
+				{this.props.children}
 			</div>
 		);
 	}

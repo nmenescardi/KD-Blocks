@@ -73,7 +73,6 @@ const blockAttributes = {
 
 class KDTwoColumnsBlock extends Component {
 	render() {
-		// Setup the attributes
 		const {
 			attributes: {
 				containerWidth,
@@ -95,19 +94,6 @@ class KDTwoColumnsBlock extends Component {
 			clientId
 		} = this.props;
 
-		//const ALLOWED_BLOCKS = ['kd-blocks/kd-column'];
-		/* 
-		const TEMPLATE = [
-			[
-				'core/columns',
-				{},
-				[
-					['kd-blocks/kd-column', { className: 'aaaaaaaaa' }],
-					['kd-blocks/kd-column', { className: 'bbbbbbbbbb' }]
-				]
-			]
-		]; */
-
 		const TEMPLATE = [
 			['kd-blocks/kd-column', { className: columnOneClasses }],
 			['kd-blocks/kd-column', { className: columnTwoClasses }]
@@ -117,15 +103,25 @@ class KDTwoColumnsBlock extends Component {
 			.innerBlocks[0];
 		if (col1) {
 			dispatch('core/editor').updateBlockAttributes(col1.clientId, {
-				className: columnOneClasses
+				className: classnames('kd-col-1', columnOneClasses),
+				containerBackgroundColor: containerBackgroundColorOne,
+				containerImgURL: containerImgURLOne,
+				containerImgID: containerImgIDOne,
+				containerImgAlt: containerImgAltOne,
+				containerDimRatio: columnOneDimRatio
 			});
 		}
+
 		var col2 = select('core/editor').getBlocksByClientId(clientId)[0]
 			.innerBlocks[1];
-
 		if (col2) {
 			dispatch('core/editor').updateBlockAttributes(col2.clientId, {
-				className: columnTwoClasses
+				className: classnames('kd-col-2', columnTwoClasses),
+				containerBackgroundColor: containerBackgroundColorTwo,
+				containerImgURL: containerImgURLTwo,
+				containerImgID: containerImgIDTwo,
+				containerImgAlt: containerImgAltTwo,
+				containerDimRatio: columnTwoDimRatio
 			});
 		}
 
@@ -151,50 +147,7 @@ class KDTwoColumnsBlock extends Component {
 						['align' + containerWidth]: containerWidth
 					})}
 				>
-					<InnerBlocks
-						template={TEMPLATE}
-						templateLock="all"
-						//allowedBlocks={ALLOWED_BLOCKS}
-					/>
-					{/* 
-					<div className={classnames('kd-col-1', columnOneClasses)}>
-						<Container containerBackgroundColor={containerBackgroundColorOne}>
-							{containerImgURLOne && !!containerImgURLOne.length && (
-								<div className="kd-container-image-wrap">
-									<img
-										className={classnames(
-											'kd-container-image',
-											dimRatioToClass(columnOneDimRatio),
-											{
-												'has-background-dim': columnOneDimRatio !== 0
-											}
-										)}
-										src={containerImgURLOne}
-										alt={containerImgAltOne}
-									/>
-								</div>
-							)}
-						</Container>
-					</div> */}
-					{/* <div className={classnames('kd-col-2', columnTwoClasses)}>
-						<Container containerBackgroundColor={containerBackgroundColorTwo}>
-							{containerImgURLTwo && !!containerImgURLTwo.length && (
-								<div className="kd-container-image-wrap">
-									<img
-										className={classnames(
-											'kd-container-image',
-											dimRatioToClass(columnTwoDimRatio),
-											{
-												'has-background-dim': columnTwoDimRatio !== 0
-											}
-										)}
-										src={containerImgURLTwo}
-										alt={containerImgAltTwo}
-									/>
-								</div>
-							)}
-						</Container>
-					</div> */}
+					<InnerBlocks template={TEMPLATE} templateLock="all" />
 				</div>
 			</div>
 		];
@@ -228,40 +181,10 @@ registerBlockType('kd-blocks/kd-two-columns', {
 	/* TODO: Save Function !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
 
 	save: function(props) {
-		const {
-			containerImgURL,
-			containerImgAlt,
-			containerDimRatio
-		} = props.attributes;
-
-		const { clientId } = props;
-
 		return (
-			<div className="kd-container-inside row">
-				{containerImgURL && !!containerImgURL.length && (
-					<div className="kd-container-image-wrap">
-						<img
-							className={classnames(
-								'kd-container-image',
-								dimRatioToClass(containerDimRatio),
-								{
-									'has-background-dim': containerDimRatio !== 0
-								}
-							)}
-							src={containerImgURL}
-							alt={containerImgAlt}
-						/>
-					</div>
-				)}
-
+			<Container {...props}>
 				<InnerBlocks.Content />
-			</div>
+			</Container>
 		);
 	}
 });
-
-function dimRatioToClass(ratio) {
-	return ratio === 0 || ratio === 50
-		? null
-		: 'has-background-dim-' + 10 * Math.round(ratio / 10);
-}
