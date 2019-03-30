@@ -98,7 +98,7 @@ class KDTwoColumnsBlock extends Component {
 			['kd-blocks/kd-column', { className: columnTwoClasses }]
 		];
 
-		var col1 = select('core/editor').getBlocksByClientId(clientId)[0]
+		const col1 = select('core/editor').getBlocksByClientId(clientId)[0]
 			.innerBlocks[0];
 		if (col1) {
 			dispatch('core/editor').updateBlockAttributes(col1.clientId, {
@@ -111,7 +111,7 @@ class KDTwoColumnsBlock extends Component {
 			});
 		}
 
-		var col2 = select('core/editor').getBlocksByClientId(clientId)[0]
+		const col2 = select('core/editor').getBlocksByClientId(clientId)[0]
 			.innerBlocks[1];
 		if (col2) {
 			dispatch('core/editor').updateBlockAttributes(col2.clientId, {

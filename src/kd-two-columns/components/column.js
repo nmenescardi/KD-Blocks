@@ -27,59 +27,18 @@ registerBlockType('kd-blocks/kd-column', {
 	},
 
 	edit: function(props) {
-		const {
-			attributes: { containerBackgroundColor }
-		} = props;
-
-		const styles = {
-			backgroundColor: containerBackgroundColor
-				? containerBackgroundColor
-				: undefined
-		};
-
-		return <ColumnContainer {...props} styles={styles} />;
+		return (
+			<ColumnContainer {...props}>
+				<InnerBlocks templateLock={false} />
+			</ColumnContainer>
+		);
 	},
 
 	save(props) {
-		const {
-			attributes: {
-				className,
-				containerBackgroundColor,
-				containerImgURL,
-				containerImgID,
-				containerImgAlt,
-				containerDimRatio
-			}
-		} = props;
-
-		const styles = {
-			backgroundColor: containerBackgroundColor
-				? containerBackgroundColor
-				: undefined
-		};
-
 		return (
-			<div style={styles} className={classnames('kd-col', 'col', className)}>
-				{/* 				{containerImgURL && !!containerImgURL.length && (
-					<div className="kd-container-image-wrap">
-						<figure>
-							{' '}
-							<img
-								className={classnames(
-									'kd-container-image',
-									dimRatioToClass(containerDimRatio),
-									{
-										'has-background-dim': containerDimRatio !== 0
-									}
-								)}
-								src={containerImgURL}
-								alt={containerImgAlt}
-							/>
-						</figure>
-					</div>
-				)} */}
+			<ColumnContainer {...props}>
 				<InnerBlocks.Content />
-			</div>
+			</ColumnContainer>
 		);
 	}
 });

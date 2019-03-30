@@ -3,7 +3,6 @@
  */
 
 const { Component } = wp.element;
-const { InnerBlocks } = wp.editor;
 import classnames from 'classnames';
 
 export default class ColumnContainer extends Component {
@@ -17,10 +16,16 @@ export default class ColumnContainer extends Component {
 				className,
 				containerImgURL,
 				containerDimRatio,
-				containerImgAlt
-			},
-			styles
+				containerImgAlt,
+				containerBackgroundColor
+			}
 		} = this.props;
+
+		const styles = {
+			backgroundColor: containerBackgroundColor
+				? containerBackgroundColor
+				: undefined
+		};
 
 		return (
 			<div style={styles} className={classnames('kd-col', 'col', className)}>
@@ -39,8 +44,7 @@ export default class ColumnContainer extends Component {
 						/>
 					</div>
 				)}
-
-				<InnerBlocks templateLock={false} />
+				{this.props.children}
 			</div>
 		);
 	}
