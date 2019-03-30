@@ -4,6 +4,7 @@
 
 const { Component } = wp.element;
 import classnames from 'classnames';
+import Inspector from './columnInspector';
 
 export default class ColumnContainer extends Component {
 	constructor(props) {
@@ -15,10 +16,11 @@ export default class ColumnContainer extends Component {
 			attributes: {
 				className,
 				containerImgURL,
-				containerDimRatio,
+				columnDimRatio,
 				containerImgAlt,
 				containerBackgroundColor
-			}
+			},
+			setAttributes
 		} = this.props;
 
 		const styles = {
@@ -27,16 +29,22 @@ export default class ColumnContainer extends Component {
 				: undefined
 		};
 
-		return (
+		return [
+			<Inspector
+				{...{
+					setAttributes,
+					...this.props
+				}}
+			/>,
 			<div style={styles} className={classnames('kd-col', 'col', className)}>
 				{containerImgURL && !!containerImgURL.length && (
 					<div className="kd-container-image-wrap">
 						<img
 							className={classnames(
 								'kd-container-image',
-								dimRatioToClass(containerDimRatio),
+								dimRatioToClass(columnDimRatio),
 								{
-									'has-background-dim': containerDimRatio !== 0
+									'has-background-dim': columnDimRatio !== 0
 								}
 							)}
 							src={containerImgURL}
@@ -46,7 +54,7 @@ export default class ColumnContainer extends Component {
 				)}
 				{this.props.children}
 			</div>
-		);
+		];
 	}
 }
 

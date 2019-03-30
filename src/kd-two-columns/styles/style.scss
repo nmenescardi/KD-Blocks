@@ -9,7 +9,7 @@
 	padding: 0;
 
 	// Every element inside the columns, except the IMG, has to be complete opaque;
-	.wp-block-kd-blocks-kd-column.kd-col {
+	.kd-col {
 		& > *:not(.kd-container-image-wrap img.kd-container-image) {
 			filter: brightness(100%);
 		}

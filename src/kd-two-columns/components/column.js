@@ -1,4 +1,3 @@
-// TODO: Try to have a separated component to render both Edit and Save function. like 'ColumnComponent'
 // TODO: Try to add the inspector in here (sidebar options)
 
 import classnames from 'classnames';
@@ -23,6 +22,28 @@ registerBlockType('kd-blocks/kd-column', {
 	attributes: {
 		className: {
 			type: 'string'
+		},
+		containerBackgroundColor: {
+			type: 'string'
+		},
+		containerImgURL: {
+			type: 'string'
+		},
+		containerImgID: {
+			type: 'number'
+		},
+		containerImgAlt: {
+			type: 'string',
+			source: 'attribute',
+			attribute: 'alt',
+			selector: 'img'
+		},
+		columnClasses: {
+			type: 'string'
+		},
+		columnDimRatio: {
+			type: 'number',
+			default: 50
 		}
 	},
 

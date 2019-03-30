@@ -21,36 +21,6 @@ const blockAttributes = {
 	containerWidth: {
 		type: 'string'
 	},
-	containerBackgroundColorOne: {
-		type: 'string'
-	},
-	containerBackgroundColorTwo: {
-		type: 'string'
-	},
-	containerImgURLOne: {
-		type: 'string'
-	},
-	containerImgURLTwo: {
-		type: 'string'
-	},
-	containerImgIDOne: {
-		type: 'number'
-	},
-	containerImgIDTwo: {
-		type: 'number'
-	},
-	containerImgAltOne: {
-		type: 'string',
-		source: 'attribute',
-		attribute: 'alt',
-		selector: 'img'
-	},
-	containerImgAltTwo: {
-		type: 'string',
-		source: 'attribute',
-		attribute: 'alt',
-		selector: 'img'
-	},
 	rowClasses: {
 		type: 'string'
 	},
@@ -59,14 +29,6 @@ const blockAttributes = {
 	},
 	columnTwoClasses: {
 		type: 'string'
-	},
-	columnOneDimRatio: {
-		type: 'number',
-		default: 50
-	},
-	columnTwoDimRatio: {
-		type: 'number',
-		default: 50
 	}
 };
 
@@ -75,19 +37,9 @@ class KDTwoColumnsBlock extends Component {
 		const {
 			attributes: {
 				containerWidth,
-				containerBackgroundColorOne,
-				containerBackgroundColorTwo,
-				containerImgURLOne,
-				containerImgURLTwo,
-				containerImgIDOne,
-				containerImgIDTwo,
-				containerImgAltOne,
-				containerImgAltTwo,
 				rowClasses,
 				columnOneClasses,
-				columnTwoClasses,
-				columnOneDimRatio,
-				columnTwoDimRatio
+				columnTwoClasses
 			},
 			setAttributes,
 			clientId
@@ -102,12 +54,7 @@ class KDTwoColumnsBlock extends Component {
 			.innerBlocks[0];
 		if (col1) {
 			dispatch('core/editor').updateBlockAttributes(col1.clientId, {
-				className: classnames('kd-col-1', columnOneClasses),
-				containerBackgroundColor: containerBackgroundColorOne,
-				containerImgURL: containerImgURLOne,
-				containerImgID: containerImgIDOne,
-				containerImgAlt: containerImgAltOne,
-				containerDimRatio: columnOneDimRatio
+				className: classnames('kd-col-1', columnOneClasses)
 			});
 		}
 
@@ -115,12 +62,7 @@ class KDTwoColumnsBlock extends Component {
 			.innerBlocks[1];
 		if (col2) {
 			dispatch('core/editor').updateBlockAttributes(col2.clientId, {
-				className: classnames('kd-col-2', columnTwoClasses),
-				containerBackgroundColor: containerBackgroundColorTwo,
-				containerImgURL: containerImgURLTwo,
-				containerImgID: containerImgIDTwo,
-				containerImgAlt: containerImgAltTwo,
-				containerDimRatio: columnTwoDimRatio
+				className: classnames('kd-col-2', columnTwoClasses)
 			});
 		}
 

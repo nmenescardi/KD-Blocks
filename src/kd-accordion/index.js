@@ -2,7 +2,8 @@
  * KD Accordion Block
  */
 
-// Import block dependencies and components
+// TODO: Try adding heading using templates. Plan b add title component
+
 import classnames from 'classnames';
 import Inspector from './components/inspector';
 import Accordion from './components/accordion';
