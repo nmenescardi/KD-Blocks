@@ -3,6 +3,7 @@
 
 import classnames from 'classnames';
 import icons from './icons';
+import ColumnContainer from './ColumnContainer';
 
 const { __ } = wp.i18n;
 const { InnerBlocks } = wp.editor;
@@ -27,14 +28,7 @@ registerBlockType('kd-blocks/kd-column', {
 
 	edit: function(props) {
 		const {
-			attributes: {
-				className,
-				containerBackgroundColor,
-				containerImgURL,
-				containerImgID,
-				containerImgAlt,
-				containerDimRatio
-			}
+			attributes: { containerBackgroundColor }
 		} = props;
 
 		const styles = {
@@ -43,27 +37,7 @@ registerBlockType('kd-blocks/kd-column', {
 				: undefined
 		};
 
-		return (
-			<div style={styles} className={classnames('kd-col', 'col', className)}>
-				{/* 	{containerImgURL && !!containerImgURL.length && (
-					<div className="kd-container-image-wrap">
-						<img
-							className={classnames(
-								'kd-container-image',
-								dimRatioToClass(containerDimRatio),
-								{
-									'has-background-dim': containerDimRatio !== 0
-								}
-							)}
-							src={containerImgURL}
-							alt={containerImgAlt}
-						/>
-					</div>
-				)} */}
-
-				<InnerBlocks templateLock={false} />
-			</div>
-		);
+		return <ColumnContainer {...props} styles={styles} />;
 	},
 
 	save(props) {
@@ -109,9 +83,3 @@ registerBlockType('kd-blocks/kd-column', {
 		);
 	}
 });
-
-function dimRatioToClass(ratio) {
-	return ratio === 0 || ratio === 50
-		? null
-		: 'has-background-dim-' + 10 * Math.round(ratio / 10);
-}
