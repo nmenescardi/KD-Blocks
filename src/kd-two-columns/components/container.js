@@ -5,27 +5,30 @@
 const { Component } = wp.element;
 import classnames from 'classnames';
 
-export default class Container extends Component {
+export default class ColumnContainer extends Component {
 	constructor(props) {
 		super(...arguments);
 	}
 
 	render() {
-		const {
-			attributes: { rowClasses, containerWidth }
-		} = this.props;
+		<div style={styles} className={classnames('kd-col', 'col', className)}>
+			{/* 	{containerImgURL && !!containerImgURL.length && (
+					<div className="kd-container-image-wrap">
+						<img
+							className={classnames(
+								'kd-container-image',
+								dimRatioToClass(containerDimRatio),
+								{
+									'has-background-dim': containerDimRatio !== 0
+								}
+							)}
+							src={containerImgURL}
+							alt={containerImgAlt}
+						/>
+					</div>
+				)} */}
 
-		const className = classnames(
-			[this.props.className, rowClasses, 'kd-block-container row'],
-			{
-				['align' + containerWidth]: containerWidth
-			}
-		);
-
-		return (
-			<div className={className ? className : undefined}>
-				{this.props.children}
-			</div>
-		);
+			<InnerBlocks templateLock={false} />
+		</div>;
 	}
 }

@@ -1,3 +1,6 @@
+// TODO: Try to have a separated component to render both Edit and Save function. like 'ColumnComponent'
+// TODO: Try to add the inspector in here (sidebar options)
+
 import classnames from 'classnames';
 import icons from './icons';
 
@@ -41,8 +44,8 @@ registerBlockType('kd-blocks/kd-column', {
 		};
 
 		return (
-			<div style={styles} className={classnames('kd-col', className)}>
-				{containerImgURL && !!containerImgURL.length && (
+			<div style={styles} className={classnames('kd-col', 'col', className)}>
+				{/* 	{containerImgURL && !!containerImgURL.length && (
 					<div className="kd-container-image-wrap">
 						<img
 							className={classnames(
@@ -56,7 +59,7 @@ registerBlockType('kd-blocks/kd-column', {
 							alt={containerImgAlt}
 						/>
 					</div>
-				)}
+				)} */}
 
 				<InnerBlocks templateLock={false} />
 			</div>
@@ -82,22 +85,25 @@ registerBlockType('kd-blocks/kd-column', {
 		};
 
 		return (
-			<div style={styles} className={classnames('kd-col', className)}>
-				{containerImgURL && !!containerImgURL.length && (
+			<div style={styles} className={classnames('kd-col', 'col', className)}>
+				{/* 				{containerImgURL && !!containerImgURL.length && (
 					<div className="kd-container-image-wrap">
-						<img
-							className={classnames(
-								'kd-container-image',
-								dimRatioToClass(containerDimRatio),
-								{
-									'has-background-dim': containerDimRatio !== 0
-								}
-							)}
-							src={containerImgURL}
-							alt={containerImgAlt}
-						/>
+						<figure>
+							{' '}
+							<img
+								className={classnames(
+									'kd-container-image',
+									dimRatioToClass(containerDimRatio),
+									{
+										'has-background-dim': containerDimRatio !== 0
+									}
+								)}
+								src={containerImgURL}
+								alt={containerImgAlt}
+							/>
+						</figure>
 					</div>
-				)}
+				)} */}
 				<InnerBlocks.Content />
 			</div>
 		);

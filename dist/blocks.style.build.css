@@ -198,6 +198,9 @@
   margin: 0;
   position: relative;
   padding: 0; }
+  .kd-block-two-col .wp-block-kd-blocks-kd-column.kd-col > * {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%); }
   .kd-block-two-col.alignfull .editor-block-list__block {
     max-width: 100%; }
   @media only screen and (min-width: 768px) {

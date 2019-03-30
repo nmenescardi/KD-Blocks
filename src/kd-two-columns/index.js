@@ -3,7 +3,6 @@
  */
 import classnames from 'classnames';
 import Inspector from './components/inspector';
-import Container from './components/container';
 import './components/column';
 
 import './styles/style.scss';
@@ -178,13 +177,20 @@ registerBlockType('kd-blocks/kd-two-columns', {
 
 	edit: KDTwoColumnsBlock,
 
-	/* TODO: Save Function !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
-
 	save: function(props) {
+		const {
+			attributes: { containerWidth, rowClasses }
+		} = props;
 		return (
-			<Container {...props}>
-				<InnerBlocks.Content />
-			</Container>
+			<div className="kd-block-two-col">
+				<div
+					className={classnames('row', 'kd-row', rowClasses, {
+						['align' + containerWidth]: containerWidth
+					})}
+				>
+					<InnerBlocks.Content />
+				</div>
+			</div>
 		);
 	}
 });
