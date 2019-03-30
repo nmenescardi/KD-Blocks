@@ -1,5 +1,3 @@
-// TODO: Add the correct icon
-
 const icons = {};
 
 icons.container = (
@@ -13,30 +11,22 @@ icons.container = (
 		viewBox="0 0 14 12"
 		space="preserve"
 	>
-		<g transform="translate(-280.5 -150.5)">
+		<g transform="translate(-281 -123.322)">
 			<rect
-				x="280.5"
-				y="153.5"
+				x="289"
+				y="123.4"
 				class="st0"
 				style={{ fill: '#555D66' }}
-				width="14"
-				height="9"
+				width="6"
+				height="12"
 			/>
 			<rect
-				x="282.5"
-				y="155.5"
+				x="281"
+				y="123.3"
 				class="st1"
-				style={{ fill: '#FFFFFF' }}
-				width="10"
-				height="5"
-			/>
-			<rect
-				x="280.5"
-				y="150.5"
-				class="st2"
 				style={{ fill: '#FF214F' }}
-				width="14"
-				height="2"
+				width="6"
+				height="12"
 			/>
 		</g>
 	</svg>

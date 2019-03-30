@@ -1,5 +1,3 @@
-// TODO: Try to add the inspector in here (sidebar options)
-
 import classnames from 'classnames';
 import icons from './icons';
 import ColumnContainer from './ColumnContainer';
