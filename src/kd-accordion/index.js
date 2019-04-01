@@ -2,12 +2,11 @@
  * KD Accordion Block
  */
 
-// TODO: Try adding heading using templates. Plan b add title component
-
 import classnames from 'classnames';
 import Inspector from './components/inspector';
 import Accordion from './components/accordion';
 import icons from './components/icons';
+import Heading from './components/Heading';
 
 import './styles/style.scss';
 import './styles/editor.scss';
@@ -17,7 +16,6 @@ const { Component } = wp.element;
 const { registerBlockType } = wp.blocks;
 const {
 	RichText,
-	AlignmentToolbar,
 	BlockControls,
 	InnerBlocks,
 	BlockAlignmentToolbar
@@ -28,6 +26,10 @@ const blockAttributes = {
 		type: 'array',
 		selector: '.kd-accordion-title',
 		source: 'children'
+	},
+	accordionTitleLevel: {
+		type: 'string',
+		default: 'h3'
 	},
 	accordionText: {
 		type: 'array',
@@ -58,21 +60,12 @@ const blockAttributes = {
 
 class KDAccordionBlock extends Component {
 	render() {
-		// Setup the attributes
 		const {
-			attributes: {
-				accordionTitle,
-				accordionText,
-				blockAlignment,
-				accordionOpen
-			},
-			isSelected,
-			className,
+			attributes: { accordionTitle, blockAlignment, accordionTitleLevel },
 			setAttributes
 		} = this.props;
 
 		return [
-			// Show the block alignment controls on focus
 			<BlockControls key="controls">
 				<BlockAlignmentToolbar
 					value={blockAlignment}
@@ -80,12 +73,12 @@ class KDAccordionBlock extends Component {
 					controls={['wide', 'full']}
 				/>
 			</BlockControls>,
-			// Show the block controls on focus
+
 			<Inspector {...this.props} />,
-			// Show the button markup in the editor
+
 			<Accordion {...this.props}>
 				<RichText
-					tagName="p"
+					tagName={accordionTitleLevel}
 					placeholder={__('Accordion Title', 'kd-blocks')}
 					value={accordionTitle}
 					className="kd-accordion-title accordion--headline"
@@ -93,7 +86,6 @@ class KDAccordionBlock extends Component {
 						this.props.setAttributes({ accordionTitle: value })
 					}
 				/>
-
 				<div className="kd-accordion-text">
 					<InnerBlocks />
 				</div>
@@ -102,7 +94,6 @@ class KDAccordionBlock extends Component {
 	}
 }
 
-// Register the block
 registerBlockType('kd-blocks/kd-accordion', {
 	title: __('KD Accordion', 'kd-blocks'),
 	description: __(
@@ -120,20 +111,17 @@ registerBlockType('kd-blocks/kd-accordion', {
 		}
 	},
 
-	// Render the block components
 	edit: KDAccordionBlock,
 
-	// Save the attributes and markup
 	save: function(props) {
-		// Setup the attributes
 		const {
 			accordionTitle,
 			plusIcon,
 			accordionOpen,
-			iconPositionLeft
+			iconPositionLeft,
+			accordionTitleLevel
 		} = props.attributes;
 
-		// Save the block markup for the front end
 		return (
 			<Accordion {...props}>
 				<section
@@ -145,9 +133,13 @@ registerBlockType('kd-blocks/kd-accordion', {
 						{ 'row-icon': !plusIcon }
 					)}
 				>
-					<h2 className="kd-accordion-title accordion--headline">
+					<Heading
+						accordionTitleLevel={accordionTitleLevel}
+						className="kd-accordion-title accordion--headline"
+					>
 						<RichText.Content value={accordionTitle} />
-					</h2>
+					</Heading>
+
 					<div className="kd-accordion-text accordion--content">
 						<InnerBlocks.Content />
 					</div>

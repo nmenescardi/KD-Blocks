@@ -1,8 +1,23 @@
-/**
- * 
- * 
-		const TEMPLATE = [['core/heading', {}]];
+const { Component } = wp.element;
 
-				<InnerBlocks template={TEMPLATE} templateLock="all" />
+export default class Heading extends Component {
+	constructor(props) {
+		super(...arguments);
+	}
 
- */
+	render() {
+		const { accordionTitleLevel, className } = this.props;
+
+		const CustomTagTitle = accordionTitleLevel
+			? `${accordionTitleLevel}`
+			: 'h3';
+
+		console.log(accordionTitleLevel);
+
+		return (
+			<CustomTagTitle className={className}>
+				{this.props.children}
+			</CustomTagTitle>
+		);
+	}
+}
