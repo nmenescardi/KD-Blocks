@@ -3,16 +3,16 @@
 --------------------------------------------------------------*/
 
 jQuery(document).ready(function() {
-	jQuery('.accordion .open')
-		.children('.accordion--content')
+	jQuery('.kd-accordion .open')
+		.children('.kd-accordion--content')
 		.slideDown();
 
-	jQuery('.accordion .accordion--headline').on('click', function() {
+	jQuery('.kd-accordion .kd-accordion--headline').on('click', function() {
 		var $this = jQuery(this);
 		$span = $this.closest('section');
 
 		$open = $this
-			.closest('.accordion')
+			.closest('.kd-accordion')
 			.find('section.open')
 			.not($span);
 
@@ -22,25 +22,28 @@ jQuery(document).ready(function() {
 
 		//Open selected accordion
 		$span.toggleClass('open');
-		$this.next('.accordion .accordion--content').slideToggle();
+		$this.next('.kd-accordion .kd-accordion--content').slideToggle();
 	});
 
 	/* Shuffle */
-	jQuery('.accordion-shuffle .open')
-		.children('.accordion--content')
+	jQuery('.kd-accordion-shuffle .open')
+		.children('.kd-accordion--content')
 		.slideDown();
-	jQuery('.accordion-shuffle .accordion--headline').on('click', function() {
-		var $this = jQuery(this);
-		$span = $this.closest('section');
+	jQuery('.kd-accordion-shuffle .kd-accordion--headline').on(
+		'click',
+		function() {
+			var $this = jQuery(this);
+			$span = $this.closest('section');
 
-		$open = jQuery('.accordion-shuffle .open').not($span);
+			$open = jQuery('.kd-accordion-shuffle .open').not($span);
 
-		//Close open accordions
-		$open.children('.accordion--content').slideUp(); // Activate to open and close
-		$open.removeClass('open');
+			//Close open accordions
+			$open.children('.kd-accordion--content').slideUp(); // Activate to open and close
+			$open.removeClass('open');
 
-		//Open selected accordion
-		$span.toggleClass('open');
-		$this.next('.accordion-shuffle .accordion--content').slideToggle();
-	});
+			//Open selected accordion
+			$span.toggleClass('open');
+			$this.next('.kd-accordion-shuffle .kd-accordion--content').slideToggle();
+		}
+	);
 });

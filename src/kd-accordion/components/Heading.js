@@ -12,8 +12,6 @@ export default class Heading extends Component {
 			? `${accordionTitleLevel}`
 			: 'h3';
 
-		console.log(accordionTitleLevel);
-
 		return (
 			<CustomTagTitle className={className}>
 				{this.props.children}

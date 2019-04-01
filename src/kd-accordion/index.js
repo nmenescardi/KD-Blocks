@@ -81,7 +81,7 @@ class KDAccordionBlock extends Component {
 					tagName={accordionTitleLevel}
 					placeholder={__('Accordion Title', 'kd-blocks')}
 					value={accordionTitle}
-					className="kd-accordion-title accordion--headline"
+					className="kd-accordion-title kd-accordion--headline"
 					onChange={value =>
 						this.props.setAttributes({ accordionTitle: value })
 					}
@@ -135,12 +135,12 @@ registerBlockType('kd-blocks/kd-accordion', {
 				>
 					<Heading
 						accordionTitleLevel={accordionTitleLevel}
-						className="kd-accordion-title accordion--headline"
+						className="kd-accordion-title kd-accordion--headline"
 					>
 						<RichText.Content value={accordionTitle} />
 					</Heading>
 
-					<div className="kd-accordion-text accordion--content">
+					<div className="kd-accordion-text kd-accordion--content">
 						<InnerBlocks.Content />
 					</div>
 				</section>

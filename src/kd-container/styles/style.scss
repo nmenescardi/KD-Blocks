@@ -8,6 +8,12 @@
 	position: relative;
 	padding: 0;
 
+	.kd-container-inside {
+		& > *:not(.kd-container-image-wrap img.kd-container-image) {
+			filter: brightness(100%);
+		}
+	}
+
 	&.alignfull {
 		.editor-block-list__block {
 			max-width: 100%;

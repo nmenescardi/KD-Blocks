@@ -53,10 +53,11 @@
 }
 
 .kd-block-accordion {
-	.accordion--headline {
+	.kd-accordion--headline {
 		background-color: #1c1d1d;
 		color: #fff;
 		padding: 15px;
+		padding-right: 40px;
 		margin: 0;
 		transition: 0.3s ease;
 		position: relative;
@@ -80,7 +81,7 @@
 		}
 	}
 
-	section.plus-icon > .accordion--headline {
+	section.plus-icon > .kd-accordion--headline {
 		&::before,
 		&::after {
 			content: '';
@@ -95,7 +96,7 @@
 		}
 	}
 
-	section.row-icon > .accordion--headline {
+	section.row-icon > .kd-accordion--headline {
 		&::before {
 			content: '';
 			background: url('/wp-content/plugins/kd-blocks/dist/img/kd-arrow-icon.svg')
@@ -109,7 +110,7 @@
 		}
 	}
 
-	section.open.plus-icon > .accordion--headline {
+	section.open.plus-icon > .kd-accordion--headline {
 		&::before {
 			transform: translate(-50%, -50%) rotate(180deg);
 		}
@@ -119,14 +120,14 @@
 		}
 	}
 
-	section.open.row-icon > .accordion--headline {
+	section.open.row-icon > .kd-accordion--headline {
 		&::before {
 			transform: rotateX(180deg);
 		}
 	}
 
 	section.icon-left {
-		.accordion--headline {
+		.kd-accordion--headline {
 			padding-left: 75px;
 
 			&::before,
@@ -136,7 +137,7 @@
 		}
 	}
 
-	.accordion--content {
+	.kd-accordion--content {
 		display: none;
 		background-color: #fff;
 		padding: 20px;
