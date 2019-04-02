@@ -54,7 +54,7 @@ const blockAttributes = {
 	},
 	shuffleAnimation: {
 		type: 'boolean',
-		default: true
+		default: false
 	}
 };
 
