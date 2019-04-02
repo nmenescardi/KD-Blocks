@@ -12,7 +12,13 @@ const {
 	MediaUpload
 } = wp.editor;
 
-const { PanelBody, RangeControl, IconButton, TextControl } = wp.components;
+const {
+	PanelBody,
+	RangeControl,
+	IconButton,
+	TextControl,
+	ToggleControl
+} = wp.components;
 
 export default class Inspector extends Component {
 	constructor(props) {
@@ -25,8 +31,9 @@ export default class Inspector extends Component {
 			containerDimRatio,
 			containerImgURL,
 			containerImgID,
-			contentClasses,
-			backgroundClasses,
+			containerClassSwitch,
+			/* 			contentClasses,
+			backgroundClasses, */
 			containerImgAlt
 		} = this.props.attributes;
 		const { setAttributes } = this.props;
@@ -53,7 +60,7 @@ export default class Inspector extends Component {
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody title={__('Extra Class', 'kd-blocks')} initialOpen={true}>
-					<TextControl
+					{/* 	<TextControl
 						label={__('KD Content Class', 'kd-blocks')}
 						value={contentClasses}
 						onChange={contentClasses => setAttributes({ contentClasses })}
@@ -62,6 +69,15 @@ export default class Inspector extends Component {
 						label={__('KD Background Class', 'kd-blocks')}
 						value={backgroundClasses}
 						onChange={backgroundClasses => setAttributes({ backgroundClasses })}
+					/> */}
+					<ToggleControl
+						label={__('Add Container class', 'kd-blocks')}
+						checked={containerClassSwitch}
+						onChange={() =>
+							this.props.setAttributes({
+								containerClassSwitch: !containerClassSwitch
+							})
+						}
 					/>
 				</PanelBody>
 

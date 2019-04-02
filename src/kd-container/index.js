@@ -37,12 +37,16 @@ const blockAttributes = {
 		attribute: 'alt',
 		selector: 'img'
 	},
-	contentClasses: {
+	containerClassSwitch: {
+		type: 'boolean',
+		default: true
+	},
+	/* 	contentClasses: {
 		type: 'string'
 	},
 	backgroundClasses: {
 		type: 'string'
-	},
+	}, */
 	containerDimRatio: {
 		type: 'number',
 		default: 50
@@ -56,9 +60,11 @@ class KDContainerBlock extends Component {
 			attributes: {
 				containerWidth,
 				containerImgURL,
+				containerImgID,
 				containerImgAlt,
-				contentClasses,
-				backgroundClasses,
+				containerClassSwitch,
+				/* contentClasses,
+				backgroundClasses, */
 				containerDimRatio
 			},
 			setAttributes
@@ -72,25 +78,32 @@ class KDContainerBlock extends Component {
 			});
 		};
 
+		const responsiveImageClass = `wp-image-${containerImgID}`;
+
 		return [
 			<BlockControls>
 				<BlockAlignmentToolbar
 					value={containerWidth}
 					onChange={containerWidth => setAttributes({ containerWidth })}
-					controls={['center', 'full']}
+					controls={['wide', 'full']}
 				/>
 			</BlockControls>,
 
 			<Inspector {...{ setAttributes, ...this.props }} />,
 
 			<Container {...this.props}>
-				<div className={classnames('kd-container-inside', contentClasses)}>
+				<div
+					className={classnames('kd-container-inside', {
+						container: containerClassSwitch
+					})}
+				>
 					{containerImgURL && !!containerImgURL.length && (
 						<div className="kd-container-image-wrap">
 							<img
 								className={classnames(
 									'kd-container-image',
-									backgroundClasses,
+									responsiveImageClass,
+									//backgroundClasses,
 									dimRatioToClass(containerDimRatio),
 									{
 										'has-background-dim': containerDimRatio !== 0
@@ -131,18 +144,27 @@ registerBlockType('kd-blocks/kd-container', {
 	save: function(props) {
 		const {
 			containerImgURL,
+			containerImgID,
 			containerImgAlt,
-			containerDimRatio
+			containerDimRatio,
+			containerClassSwitch
 		} = props.attributes;
+
+		const responsiveImageClass = `wp-image-${containerImgID}`;
 
 		return (
 			<Container {...props}>
-				<div className="kd-container-inside">
+				<div
+					className={classnames('kd-container-inside', {
+						container: containerClassSwitch
+					})}
+				>
 					{containerImgURL && !!containerImgURL.length && (
 						<div className="kd-container-image-wrap">
 							<img
 								className={classnames(
 									'kd-container-image',
+									responsiveImageClass,
 									dimRatioToClass(containerDimRatio),
 									{
 										'has-background-dim': containerDimRatio !== 0
