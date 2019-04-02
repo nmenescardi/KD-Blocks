@@ -67,7 +67,7 @@
     transition: 0.3s ease;
     margin: 0; }
 
-.kd-block-accordion section.plus-icon > .kd-accordion--headline::before, .kd-block-accordion section.plus-icon > .kd-accordion--headline::after {
+.kd-block-accordion section.plus-icon .kd-accordion--headline::before, .kd-block-accordion section.plus-icon .kd-accordion--headline::after {
   content: '';
   top: 50%;
   height: 2px;
@@ -76,12 +76,12 @@
       -ms-transform: translate(-50%, -50%) rotate(0deg);
           transform: translate(-50%, -50%) rotate(0deg); }
 
-.kd-block-accordion section.plus-icon > .kd-accordion--headline::after {
+.kd-block-accordion section.plus-icon .kd-accordion--headline::after {
   -webkit-transform: translate(-50%, -50%) rotate(90deg);
       -ms-transform: translate(-50%, -50%) rotate(90deg);
           transform: translate(-50%, -50%) rotate(90deg); }
 
-.kd-block-accordion section.row-icon > .kd-accordion--headline::before {
+.kd-block-accordion section.row-icon .kd-accordion--headline::before {
   content: '';
   background: url("/wp-content/plugins/kd-blocks/dist/img/kd-arrow-icon.svg") no-repeat;
   padding: 10px;
@@ -93,17 +93,17 @@
   width: 22px;
   right: 18px; }
 
-.kd-block-accordion section.open.plus-icon > .kd-accordion--headline::before {
+.kd-block-accordion section.open.plus-icon .kd-accordion--headline::before {
   -webkit-transform: translate(-50%, -50%) rotate(180deg);
       -ms-transform: translate(-50%, -50%) rotate(180deg);
           transform: translate(-50%, -50%) rotate(180deg); }
 
-.kd-block-accordion section.open.plus-icon > .kd-accordion--headline::after {
+.kd-block-accordion section.open.plus-icon .kd-accordion--headline::after {
   -webkit-transform: translate(-50%, -50%) rotate(360deg);
       -ms-transform: translate(-50%, -50%) rotate(360deg);
           transform: translate(-50%, -50%) rotate(360deg); }
 
-.kd-block-accordion section.open.row-icon > .kd-accordion--headline::before {
+.kd-block-accordion section.open.row-icon .kd-accordion--headline::before {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg); }
 

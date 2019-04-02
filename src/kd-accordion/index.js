@@ -61,7 +61,13 @@ const blockAttributes = {
 class KDAccordionBlock extends Component {
 	render() {
 		const {
-			attributes: { accordionTitle, blockAlignment, accordionTitleLevel },
+			attributes: {
+				accordionTitle,
+				blockAlignment,
+				accordionTitleLevel,
+				iconPositionLeft,
+				plusIcon
+			},
 			setAttributes
 		} = this.props;
 
@@ -77,15 +83,26 @@ class KDAccordionBlock extends Component {
 			<Inspector {...this.props} />,
 
 			<Accordion {...this.props}>
-				<RichText
-					tagName={accordionTitleLevel}
-					placeholder={__('Accordion Title', 'kd-blocks')}
-					value={accordionTitle}
-					className="kd-accordion-title kd-accordion--headline"
-					onChange={value =>
-						this.props.setAttributes({ accordionTitle: value })
-					}
-				/>
+				<section
+					className={classnames(
+						'open',
+						{ 'icon-left': iconPositionLeft },
+						{ 'icon-right': !iconPositionLeft },
+						{
+							'plus-icon': !plusIcon
+						} /* Change requirement, now they are reversed */,
+						{ 'row-icon': plusIcon }
+					)}
+				>
+					<RichText
+						tagName={accordionTitleLevel}
+						value={accordionTitle}
+						className="kd-accordion-title kd-accordion--headline"
+						onChange={value =>
+							this.props.setAttributes({ accordionTitle: value })
+						}
+					/>
+				</section>
 				<div className="kd-accordion-text">
 					<InnerBlocks />
 				</div>
@@ -119,6 +136,7 @@ registerBlockType('kd-blocks/kd-accordion', {
 			plusIcon,
 			accordionOpen,
 			iconPositionLeft,
+			blockAlignment,
 			accordionTitleLevel
 		} = props.attributes;
 

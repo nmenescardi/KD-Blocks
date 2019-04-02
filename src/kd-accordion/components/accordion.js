@@ -12,17 +12,20 @@ export default class Accordion extends Component {
 	}
 
 	render() {
-		const { accordionAlignment, shuffleAnimation } = this.props.attributes;
+		const { blockAlignment, shuffleAnimation } = this.props.attributes;
 
 		return (
 			<div
 				style={{}}
 				className={classnames(
 					this.props.className,
-					accordionAlignment,
+					blockAlignment,
 					'kd-block-accordion',
 					{ 'kd-accordion': !shuffleAnimation },
-					{ 'kd-accordion-shuffle': shuffleAnimation }
+					{ 'kd-accordion-shuffle': shuffleAnimation },
+					{
+						['align' + blockAlignment]: blockAlignment
+					}
 				)}
 			>
 				{this.props.children}
