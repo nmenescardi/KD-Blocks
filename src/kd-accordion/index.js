@@ -42,7 +42,7 @@ const blockAttributes = {
 	},
 	accordionOpen: {
 		type: 'boolean',
-		default: false
+		default: true
 	},
 	plusIcon: {
 		type: 'boolean',
@@ -129,8 +129,10 @@ registerBlockType('kd-blocks/kd-accordion', {
 						{ open: accordionOpen },
 						{ 'icon-left': iconPositionLeft },
 						{ 'icon-right': !iconPositionLeft },
-						{ 'plus-icon': plusIcon },
-						{ 'row-icon': !plusIcon }
+						{
+							'plus-icon': !plusIcon
+						} /* Change requirement, now they are reversed */,
+						{ 'row-icon': plusIcon }
 					)}
 				>
 					<Heading

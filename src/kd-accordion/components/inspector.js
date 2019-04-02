@@ -59,7 +59,7 @@ export default class Inspector extends Component {
 					/>
 
 					<ToggleControl
-						label={__('Plus Icon', 'kd-blocks')}
+						label={__('Custom icon', 'kd-blocks')}
 						checked={plusIcon}
 						onChange={() => this.props.setAttributes({ plusIcon: !plusIcon })}
 					/>
