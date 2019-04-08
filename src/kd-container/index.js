@@ -175,8 +175,9 @@ registerBlockType('kd-blocks/kd-container', {
 							/>
 						</div>
 					)}
-
-					<InnerBlocks.Content />
+					<div className="kd-container-content">
+						<InnerBlocks.Content />
+					</div>
 				</div>
 			</Container>
 		);
