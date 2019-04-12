@@ -97,18 +97,16 @@ export default class Inspector extends Component {
 						)}
 					/>
 
-					{containerImgURL && !!containerImgURL.length && (
-						<RangeControl
-							label={__('Image Opacity')}
-							value={containerDimRatio}
-							onChange={value =>
-								this.props.setAttributes({ containerDimRatio: value })
-							}
-							min={0}
-							max={100}
-							step={10}
-						/>
-					)}
+					<RangeControl
+						label={__('Image Opacity')}
+						value={containerDimRatio}
+						onChange={value =>
+							this.props.setAttributes({ containerDimRatio: value })
+						}
+						min={0}
+						max={100}
+						step={1}
+					/>
 
 					<PanelColorSettings
 						title={__('Background Color')}
