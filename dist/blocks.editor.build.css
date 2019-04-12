@@ -4,6 +4,9 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+button[class*='kd-block'] span.editor-block-icon.has-colors {
+  padding: 3%; }
+
 /**
  * Editor styles for the admin
  */
@@ -24,6 +27,9 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+button[class*='kd-block'] span.editor-block-icon.has-colors {
+  padding: 3%; }
+
 /**
  * Editor styles for the admin
  */
@@ -38,6 +44,14 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+button[class*='kd-block'] span.editor-block-icon.has-colors {
+  padding: 3%; }
+
 /**
  * Editor styles for the admin
  */
+/* Workaround to set 'Add Block Button' Visible inside the columns */
+.kd-block-two-col
+.editor-block-list__layout
+.wp-block.editor-block-list__block {
+  padding-top: 1px; }

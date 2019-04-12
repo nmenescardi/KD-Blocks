@@ -11,3 +11,7 @@ $white: #f4f4f4;
 $gray: #dedede;
 $green: #bada55;
 $red: orangered;
+
+button[class*='kd-block'] span.editor-block-icon.has-colors {
+	padding: 3%;
+}

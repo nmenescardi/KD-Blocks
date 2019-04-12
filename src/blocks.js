@@ -11,4 +11,11 @@
 
 import './kd-accordion/index.js';
 import './kd-container/index.js';
-import './kd-two-columns/index.js';
+import './kd-container-bg/index.js';
+import icons from './icons/kd-logo';
+//import './kd-two-columns/index.js';
+
+(function() {
+	var el = wp.element.createElement;
+	wp.blocks.updateCategory('kd-blocks', { icon: icons.logo });
+})(icons);
