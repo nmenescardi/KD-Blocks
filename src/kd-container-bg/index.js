@@ -73,7 +73,9 @@ class KDContainerBlock extends Component {
 						container: containerClassSwitch
 					})}
 				>
-					<InnerBlocks />
+					<div className="kd-container-content">
+						<InnerBlocks />
+					</div>
 				</div>
 			</Container>
 		];
@@ -81,7 +83,7 @@ class KDContainerBlock extends Component {
 }
 
 registerBlockType('kd-blocks/kd-container-bg', {
-	title: __('KD Container BG', 'kd-blocks'),
+	title: __('Container', 'kd-blocks'),
 	description: __(
 		'Container Block BG: Groups inner blocks in a single wrapper.',
 		'kd-blocks'

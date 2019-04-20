@@ -24,78 +24,76 @@ l10.6,10.6L23.6,0.2C23.7,0.1,23.9,0,24.1,0c0.2,0,0.3,0.1,0.5,0.2L25.7,1.3z"
 
 icons.accordion = (
 	<svg
-		version="1.1"
-		id="Layer_1"
+		id="Accordion"
 		xmlns="http://www.w3.org/2000/svg"
-		xlink="http://www.w3.org/1999/xlink"
-		x="0px"
-		y="0px"
-		viewBox="0 0 13.7 12"
-		//style="enable-background:new 0 0 13.7 12;"
-		space="preserve"
+		viewBox="0 0 13.62 13.27"
 	>
-		<g transform="translate(-281.5 -122.822)">
-			<g transform="translate(0 -19)">
-				<g transform="translate(1 -8.678)">
-					<rect
-						x="280.5"
-						y="155.5"
-						class="st0"
-						style={{ fill: '#555D66' }}
-						width="11"
-						height="2"
-					/>
-					<rect
-						x="292.2"
-						y="155.5"
-						class="st0"
-						style={{ fill: '#555D66' }}
-						width="2"
-						height="2"
-					/>
-				</g>
-			</g>
-			<g transform="translate(0 -14)">
-				<g transform="translate(1 -8.678)">
-					<rect
-						x="280.5"
-						y="155.5"
-						class="st0"
-						style={{ fill: '#555D66' }}
-						width="11"
-						height="2"
-					/>
-					<rect
-						x="292.2"
-						y="155.5"
-						class="st0"
-						style={{ fill: '#555D66' }}
-						width="2"
-						height="2"
-					/>
-				</g>
-			</g>
-			<g transform="translate(0 -24)">
-				<g transform="translate(1 -8.678)">
-					<rect
-						x="280.5"
-						y="155.5"
-						class="st1"
-						style={{ fill: '#FF214F' }}
-						width="11"
-						height="2"
-					/>
-					<rect
-						x="292.2"
-						y="155.5"
-						class="st1"
-						style={{ fill: '#FF214F' }}
-						width="2"
-						height="2"
-					/>
-				</g>
-			</g>
-		</g>
+		<defs />
+		<title>kd-accordion-icon-2</title>
+		<rect
+			style={{
+				fill: 'none',
+				stroke: '#ff214f',
+				strokeMiterlimit: '10',
+				strokeWidth: '0.75px'
+			}}
+			x="0.38"
+			y="0.37"
+			width="12.87"
+			height="2.02"
+			rx="1.01"
+		/>
+		<rect
+			style={{
+				fill: 'none',
+				stroke: '#ff214f',
+				strokeMiterlimit: '10',
+				strokeWidth: '0.75px'
+			}}
+			x="0.38"
+			y="4.39"
+			width="12.87"
+			height="8.5"
+			rx="1.01"
+		/>
+		<line
+			style={{
+				fill: 'none',
+				stroke: '#ff214f',
+				strokeMiterlimit: '10',
+				strokeWidth: '0.75px'
+			}}
+			x1="0.38"
+			y1="6.36"
+			x2="13.24"
+			y2="6.36"
+		/>
+		<line
+			style={{
+				fill: 'none',
+				stroke: '#ff214f',
+				strokeMiterlimit: '10',
+				strokeWidth: '0.75px',
+				strokeLinecap: 'round'
+			}}
+			x1="3.73"
+			y1="8.65"
+			x2="9.88"
+			y2="8.65"
+		/>
+		<line
+			style={{
+				fill: 'none',
+				stroke: '#ff214f',
+				strokeMiterlimit: '10',
+				strokeWidth: '0.75px',
+				strokeLinecap: 'round'
+			}}
+			x1="3.73"
+			y1="10.3"
+			x2="9.88"
+			y2="10.3"
+		/>
 	</svg>
 );
 

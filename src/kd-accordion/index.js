@@ -112,7 +112,7 @@ class KDAccordionBlock extends Component {
 }
 
 registerBlockType('kd-blocks/kd-accordion', {
-	title: __('KD Accordion', 'kd-blocks'),
+	title: __('Accordion', 'kd-blocks'),
 	description: __(
 		'Accordion block: Includes title and inner blocks.',
 		'kd-blocks'
